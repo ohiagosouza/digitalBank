@@ -1,10 +1,7 @@
-const Account = require("./Account");
-
-module.exports = class Deposit extends Account {
-  constructor(value, accountNumber, clientName, email) {
-    super(clientName, email);
+module.exports = class Deposit {
+  constructor(value, receivingAccount) {
     this.value = value;
-    this.datacreated = new Date().toLocaleString("PT-BR");
-    this.accountNumber = accountNumber;
+    this.receivingAccount = receivingAccount;
+    this.depositDate = new Date().toLocaleString("PT-BR");
   }
 };

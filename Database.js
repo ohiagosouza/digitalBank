@@ -1,9 +1,10 @@
 module.exports = class Database {
   #storage = {
     users: [],
-    deposit: [],
+    deposits: [],
     loans: [],
     transfers: [],
+    accouts: [],
   };
 
   find(key) {
@@ -18,22 +19,28 @@ module.exports = class Database {
     }
   }
 
+  saveAccounts(account) {
+    this.#storage.accouts.push(account);
+  }
+
   saveDeposits(deposit) {
-    this.#storage.deposit.push(deposit);
+    this.#storage.deposits.push(deposit);
   }
 
   saveLoans(loan) {
-    this.#storage.deposit.push(loan);
+    this.#storage.loans.push(loan);
   }
 
   saveTransfers(transfer) {
     this.#storage.transfers.push(transfer);
   }
 
+  storageLog() {
+    console.log(this.#storage.accouts);
+  }
+
   showStorage() {
     console.table(this.#storage.users);
-    console.table(this.#storage.deposit);
     console.table(this.#storage.loans);
-    console.table(this.#storage.transfers);
   }
 };

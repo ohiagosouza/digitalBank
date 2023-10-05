@@ -1,11 +1,8 @@
-const Account = require("./Account");
-
-module.exports = class Transfer extends Account {
-  constructor(value, transferAccount, receivingAccount, clientName, email) {
-    super(clientName, email);
-    this.value = value;
+module.exports = class Transfer {
+  constructor(valueTransfered, transferAccount, receivingAccount) {
+    this.valueTransfered = valueTransfered;
     this.transferAccount = transferAccount;
     this.receivingAccount = receivingAccount;
-    this.datacreated = new Date().toLocaleString("PT-BR");
+    this.transferDate = new Date().toLocaleString("PT-BR");
   }
 };

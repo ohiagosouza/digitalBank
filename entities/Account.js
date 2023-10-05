@@ -1,14 +1,19 @@
-module.exports = class Account {
-  #balance = 0;
+const User = require("./User");
 
-  constructor() {}
+module.exports = class Account extends User {
+  #balance;
 
-  newDeposit(value) {
-    this.#balance += value;
+  constructor(clientName, email, account) {
+    super(clientName, email);
+    this.#balance = 0;
+    this.userAccount;
   }
 
-  newTransfer(value, accountNumber) {
-    this.#balance = value;
-    this.accountNumber = accountNumber;
+  get showBalance() {
+    return this.#balance;
+  }
+
+  set newBalance(newValue) {
+    this.#balance += newValue;
   }
 };
